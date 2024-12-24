@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dowry Calculator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(121, 9, 117, 1) 54%,
+          rgba(0, 212, 255, 1) 100%
+        );
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        border-radius: 15px;
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        font-size: 24px;
+        text-transform: uppercase;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin: 15px 0 5px;
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #ffffff;
+        font-weight: 600;
+      }
+
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+        font-size: 14px;
+        appearance: none; 
+        cursor: pointer;
+      }
+
+      select option {
+        background: #333333; 
+        color: #ffffff; 
+      }
+
+      select:hover,
+      select:focus {
+        border-color: #ffffff;
+        outline: none;
+      }
+
+      select option:hover {
+        background: #555555; 
+        color: #ffffff;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        background: white;
+        color: black;
+        font-size: 14px;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #6b81ff;
+        font-weight: 600;
+        color: #ffffff;
+        font-size: 16px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #5770fd;
+      }
+
+      .results p {
+        font-size: 16px;
+        color: #ffffff;
+        margin-top: 10px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 20px;
+        }
+
+        button {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>How Much Dowry Are You Worth?</h1>
+      <label for="salary">Your Monthly Salary (Fix) ₹</label>
+      <input type="number" class="salary" id="salary" placeholder="₹60000" />
+
+      <label for="age">Your Age</label>
+      <input type="number" class="age" id="age" placeholder="25 YR" />
+
+      <label for="networth">Your Net Worth (in INR)</label>
+      <input
+        type="number"
+        class="networth"
+        id="networth"
+        placeholder="Enter your net worth"
+      />
+
+      <label for="homeState">Your Home State</label>
+      <select class="homeState" id="homeState">
+        <option value="" disabled selected>Select State</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+        <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option>
+        <option value="Nagaland">Nagaland</option>
+        <option value="Odisha">Odisha</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Tripura">Tripura</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+        <option value="West Bengal">West Bengal</option>
+        <option value="Andaman and Nicobar Islands">
+          Andaman and Nicobar Islands
+        </option>
+        <option value="Chandigarh">Chandigarh</option>
+        <option value="Dadra and Nagar Haveli and Daman and Diu">
+          Dadra and Nagar Haveli and Daman and Diu
+        </option>
+        <option value="Delhi">Delhi</option>
+        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+        <option value="Ladakh">Ladakh</option>
+        <option value="Lakshadweep">Lakshadweep</option>
+        <option value="Puducherry">Puducherry</option>
+      </select>
+
+      <label for="jobType">Your Job Type</label>
+      <select class="jobType" id="jobType">
+        <option value="" disabled selected>Select Job Type</option>
+        <option value="Private">Private</option>
+        <option value="Government">Government</option>
+      </select>
+
+      <button onclick="calculateDowry()">Calculate</button>
+      <div class="results">
+        <p>MINIMUM AMOUNT :<span id="minimum">-</span></p>
+        <p>MAXIMUM AMOUNT :<span id="maximum">-</span></p>
+      </div>
+    </div>
+
+    <script>
+      var CTC = document.querySelector(".salary");
+      var AGE = document.querySelector(".age");
+      var NET_WORTH = document.querySelector(".networth");
+      var STATE = document.querySelector(".homeState");
+      var JOB_TYPE = document.querySelector(".jobType");
+
+      function calculateDowry() {
+        if (AGE.value < 21) {
+          showPopup("agePopup");
+        } else if (AGE.value > 40) {
+          showPopup("agePopup2");
+        } else if (CTC.value == 0) {
+          showPopup("salaryPopup");
+        } else if (NET_WORTH.value > 10000000) {
+          showPopup("networthPopup");
+        } else if (CTC.value < 20000) {
+          showPopup("minCTCPopup");
+        } else if (
+          [
+            "Mizoram",
+            "Meghalaya",
+            "Nagaland",
+            "Manipur",
+            "Arunachal Pradesh",
+            "Tripura",
+            "Assam",
+            "Sikkim",
+          ].includes(STATE.value)
+        ) {
+          showPopup("northeastPopup");
+        } else {
+          var maxAmount =
+            CTC.value * 25 + NET_WORTH.value / 6 + (60 - AGE.value) * 3000;
+          var minimumAmount =
+            CTC.value * 15 + NET_WORTH.value / 8 + (60 - AGE.value) * 1000;
+
+          
+          if (
+            [
+              "Haryana",
+              "Uttar Pradesh",
+              "Bihar",
+              "Jharkhand",
+              "Kerala",
+              "Madhya Pradesh",
+              "Uttarakhand",
+              "Delhi",
+            ].includes(STATE.value)
+          ) {
+            maxAmount *= 1.5;
+            minimumAmount *= 1.5;
+          } else if (
+            ["Karnataka", "Tamil Nadu", "Telangana", "Andhra Pradesh"].includes(
+              STATE.value
+            )
+          ) {
+            maxAmount *= 1.2;
+            minimumAmount *= 1.2;
+          } else if (
+            [
+              "Mizoram",
+              "Meghalaya",
+              "Nagaland",
+              "Manipur",
+              "Arunachal Pradesh",
+              "Tripura",
+              "Assam",
+              "Sikkim",
+            ].includes(STATE.value)
+          ) {
+            showPopup("northeastPopup");
+            return;
+          }
+
+          
+          if (JOB_TYPE.value === "Private") {
+            maxAmount *= 0.7;
+            minimumAmount *= 0.7;
+          } else if (JOB_TYPE.value === "Government") {
+            maxAmount *= 1.5;
+            minimumAmount *= 1.5;
+          }
+
+          document.getElementById("minimum").innerHTML =
+            " ₹" +
+            Math.round(minimumAmount > 0 ? minimumAmount : 0);
+          document.getElementById("maximum").innerHTML =
+            " ₹" + Math.round(maxAmount > 0 ? maxAmount : 0);
+          return;
+        }
+
+        document.getElementById("minimum").innerHTML =
+          "Popup dekh k saram nhi aayi";
+        document.getElementById("maximum").innerHTML = "Chla ja bhosdike";
+      }
+
+      function showPopup(popupId) {
+        var popup = document.getElementById(popupId);
+        popup.classList.add("active");
+        setTimeout(() => {
+          popup.classList.remove("active");
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
